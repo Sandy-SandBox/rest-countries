@@ -39,7 +39,7 @@ This project is an enhanced solution of the 'rest-countries-api-with-color-theme
 ![Light Mode](./screenshots/light-mode.jpeg)
 ![Dark Mode](./screenshots/dark-mode.jpeg)
 
-Live Preview: [Link to Live Preview](https://your-project-live-url.com)
+Live Preview: [Link to Live Preview](https://deluxe-rolypoly-6577e3.netlify.app/)
 
 ## Credits
 
