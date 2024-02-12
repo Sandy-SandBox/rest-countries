@@ -1,0 +1,191 @@
+@use "../abstracts" as f;
+
+.container {
+  width: min(f.rem(1200), 95%);
+  margin-inline: auto;
+}
+.container-sm {
+  width: min(f.rem(992), 95%);
+  margin-inline: auto;
+}
+
+// Texts
+.text {
+  &-center {
+    text-align: center;
+  }
+  &-left {
+    text-align: left;
+  }
+  &-right {
+    text-align: right;
+  }
+  &-uppercase {
+    text-transform: uppercase;
+  }
+  &-capitalize {
+    text-transform: capitalize;
+  }
+}
+
+// Display
+.display {
+  &-block {
+    display: block;
+  }
+  &-inline {
+    display: inline;
+  }
+  &-inline-block {
+    display: inline-block;
+  }
+  &-none {
+    display: none !important;
+  }
+}
+
+// Flex
+.flex {
+  display: flex;
+  &-center {
+    align-items: center;
+    justify-content: center;
+  }
+  &-inline {
+    display: inline-flex;
+  }
+  &-items-start {
+    align-items: start;
+  }
+  &-items-end {
+    align-items: end;
+  }
+  &-items-center {
+    align-items: center;
+  }
+  &-justify-start {
+    justify-content: flex-start;
+  }
+  &-justify-end {
+    justify-content: flex-end;
+  }
+  &-justify-center {
+    justify-content: center;
+  }
+  &-justify-between {
+    justify-content: space-between;
+  }
+  &-justify-around {
+    justify-content: space-around;
+  }
+  &-justify-evenly {
+    justify-content: space-evenly;
+  }
+  &-column {
+    flex-direction: column;
+  }
+  &-wrap {
+    flex-wrap: wrap;
+  }
+  &-1 {
+    flex: 1;
+  }
+  &-self-stretch {
+    align-self: stretch;
+  }
+  &-self-start {
+    align-self: flex-start;
+  }
+  &-self-center {
+    align-self: center;
+  }
+  &-self-end {
+    align-self: flex-end;
+  }
+}
+
+// Grid
+.grid {
+  display: grid;
+  &-center {
+    place-items: center;
+  }
+  &-6-cols {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  &-4-cols {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  &-3-cols {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  &-2-cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  &-responsive {
+    grid-template-columns: repeat(auto-fit, minmax(f.rem(320), 1fr));
+  }
+}
+
+// Gap
+.gap {
+  &-900 {
+    gap: f.rem(120);
+  }
+  &-800 {
+    gap: f.rem(92);
+  }
+  &-700 {
+    gap: f.rem(80);
+  }
+  &-600 {
+    gap: f.rem(60);
+  }
+  &-500 {
+    gap: f.rem(32);
+  }
+  &-400 {
+    gap: f.rem(24);
+  }
+  &-300 {
+    gap: f.rem(20);
+  }
+  &-200 {
+    gap: f.rem(16);
+  }
+  &-100 {
+    gap: f.rem(12);
+  }
+  &-50 {
+    gap: f.rem(4);
+  }
+}
+
+.h-100 {
+  height: 100%;
+}
+.w-100 {
+  width: 100%;
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+  opacity: 0;
+  transform: scale(0);
+}
+.circle {
+  border-radius: 50%;
+}
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0);
+  pointer-events: none;
+}

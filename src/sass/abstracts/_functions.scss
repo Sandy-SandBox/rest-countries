@@ -1,0 +1,9 @@
+@use "sass:math";
+// Convert pixals to rem
+@function rem($px) {
+  @return math.div($px, 16) + rem;
+}
+// Convert pixals to em
+@function em($px) {
+  @return math.div($px, 16) + em;
+}

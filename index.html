@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- JavaScript -->
+    <script type="module" src="src/js/index.js"></script>
+    <!-- Title -->
+    <title>Country Info 🌎🔍</title>
+  </head>
+  <body>
+    <!-- Nav -->
+    <nav class="nav">
+      <div class="container flex flex-items-center flex-justify-between">
+        <a href="#" class="logo nav__logo | flex flex-center">
+          <svg>
+            <use xlink:href="./sprite.svg#planet-outline"></use>
+          </svg>
+          <!-- <svg>
+            <use xlink:href="./sprite.svg#search-outline"></use>
+          </svg> -->
+        </a>
+        <button class="theme-switcher | flex flex-items-center gap-400">
+          <svg>
+            <use xlink:href="./sprite.svg#sun-outline"></use>
+          </svg>
+          <svg>
+            <use xlink:href="./sprite.svg#moon-outline"></use>
+          </svg>
+        </button>
+      </div>
+    </nav>
+    <header class="header">
+      <div class="container-sm">
+        <div class="header__content | text-center">
+          <h1 class="heading-primary header__heading">
+            Explore <span>Countries</span> and <span>Cities</span> : Your
+            Gateway to Global Insights.
+          </h1>
+          <p class="header__txt">
+            Discover vital information including names, flags, populations,
+            codes, capital cities, native names, languages, currencies, and more
+            for countries and cities globally. Get the fundamental details you
+            need quickly and easily.
+          </p>
+          <a href="#main" class="btn btn--primary header__btn"
+            >Explore now <span class="btn__icon">&darr;</span>
+            <span class="btn__icon">&darr;</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="main-area">
+        <form
+          action="#"
+          class="search | flex flex-items-center flex-justify-between flex-wrap gap-200"
+        >
+          <div class="search__input">
+            <svg>
+              <use xlink:href="./sprite.svg#search-outline"></use>
+            </svg>
+            <input
+              type="text"
+              name="search"
+              id="search"
+              placeholder="Search for countries..."
+            />
+          </div>
+          <div class="search__filter | grid gap-100">
+            <button
+              type="button"
+              class="search__filter-btn | flex flex-items-center flex-justify-evenly gap-50"
+              aria-controls="filter-dropdown"
+              aria-expanded="false"
+            >
+              <span>Filter by Reigon</span>
+              <svg>
+                <use xlink:href="./sprite.svg#chevron-down-outline"></use>
+              </svg>
+            </button>
+            <ul
+              class="search__filter-dropdown"
+              role="list"
+              id="filter-dropdown"
+            >
+              <li class="search__filter-item search__filter-item--selected">
+                Asia
+              </li>
+              <li class="search__filter-item">Africa</li>
+              <li class="search__filter-item">America</li>
+              <li class="search__filter-item">Europe</li>
+              <li class="search__filter-item">Oceania</li>
+            </ul>
+          </div>
+        </form>
+        <div class="countries"></div>
+
+        <div class="flex flex-center">
+          <button class="btn btn-sort text-uppercase">
+            Sort by highest Population
+          </button>
+        </div>
+      </section>
+
+      <section class="detail-area display-none">
+        <button class="btn btn--default btn-back">
+          Back
+          <svg>
+            <use xlink:href="./sprite.svg#arrow-back-outline"></use>
+          </svg>
+        </button>
+        <div class="detail-container">
+          <div class="dynamic-txt flex flex-center">
+            <p class="text-center">Loading details... Please wait! will you?</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
