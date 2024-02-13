@@ -9,10 +9,12 @@ const container = document.querySelector(".main-area");
 const detailArea = document.querySelector(".detail-area");
 const filter = document.querySelector(".search__filter");
 const filterDropdown = document.querySelector(".search__filter-dropdown");
+const suggestionEl = document.querySelector(".search__suggestion");
 const btnSortPopulation = document.querySelector(".btn-sort");
 const btnBack = document.querySelector(".btn-back");
 const dynamicTxt = document.querySelector(".dynamic-txt");
 let sortByOrder = "lowest";
+let countryNames = [];
 class App {
   constructor() {
     this.addEvents();
@@ -116,6 +118,10 @@ class App {
       btnSortPopulation.addEventListener("click", (e) => {
         this.displayCountries(this.sortCountries(countries, "population"));
       });
+
+      countries.forEach((country) =>
+        countryNames.push(country.name.common.toLowerCase())
+      );
     } catch (err) {
       console.error(err);
       if (err.message === "timeout") {
@@ -404,6 +410,42 @@ class App {
       detailContainer.insertAdjacentHTML("beforeend", detailHTML);
     });
   }
+  autoSuggest(e) {
+    const autoSuggestionList = suggestionEl.querySelector("ul");
+    let result = [];
+    if (!inputSearch.value.length > 0) {
+      const region = filter
+        .querySelector(".search__filter-item--selected")
+        .textContent.toLowerCase()
+        .trim();
+      autoSuggestionList.innerHTML = "";
+      suggestionEl.classList.remove("active");
+      this.getCountry("region", region);
+      return;
+    }
+    suggestionEl.classList.add("active");
+    result = countryNames.filter((countryName) => {
+      return countryName
+        .toLowerCase()
+        .includes(inputSearch.value.toLowerCase());
+    });
+    let html = "";
+    Array.from(new Set(result)).map((name) => {
+      html += `<li class="search__suggestion-item">${name}</li>`;
+      autoSuggestionList.innerHTML = html;
+    });
+    const suggestedCountry = document.querySelectorAll(
+      ".search__suggestion-item"
+    );
+
+    autoSuggestionList.addEventListener("click", (e) => {
+      if (!e.target.classList.contains("search__suggestion-item")) return;
+      const clickedCountry = e.target.textContent;
+      inputSearch.value = clickedCountry;
+      suggestionEl.classList.remove("active");
+      this.getCountry("name", clickedCountry, false);
+    });
+  }
   // Add event listeners
   addEvents() {
     themeSwitcher.addEventListener("click", this.toggleTheme);
@@ -415,7 +457,7 @@ class App {
     this.getCountry("region", "asia");
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-      const searchVal = inputSearch.value.toLowerCase();
+      const searchVal = inputSearch.value;
       this.getCountry("name", searchVal, false);
     });
     filter.addEventListener("click", this.toggleFilter.bind(this));
@@ -436,6 +478,7 @@ class App {
         "Loading details... Please wait! will you?"
       );
     });
+    inputSearch.addEventListener("keyup", this.autoSuggest.bind(this));
   }
 }
 const app = new App();

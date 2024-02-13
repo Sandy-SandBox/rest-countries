@@ -232,6 +232,35 @@ main {
       }
     }
   }
+
+  &__suggestion {
+    @extend .search__filter-dropdown;
+    width: 100%;
+    height: a.rem(150);
+    opacity: 1;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+      width: a.rem(10);
+      background-color: var(--clr-bg-600);
+      border-radius: var(--br-pill);
+      &-thumb {
+        width: 100%;
+        background-color: var(--clr-text-300);
+        border-radius: var(--br-pill);
+      }
+    }
+    &.active {
+      transform: translateY(a.rem(65));
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      z-index: 5;
+    }
+    &-item {
+      @extend .search__filter-item;
+      padding: a.rem(10) a.rem(16);
+    }
+  }
 }
 
 .countries {

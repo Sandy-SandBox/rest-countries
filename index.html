@@ -16,9 +16,6 @@
           <svg>
             <use xlink:href="./sprite.svg#planet-outline"></use>
           </svg>
-          <!-- <svg>
-            <use xlink:href="./sprite.svg#search-outline"></use>
-          </svg> -->
         </a>
         <button class="theme-switcher | flex flex-items-center gap-400">
           <svg>
@@ -66,7 +63,11 @@
               name="search"
               id="search"
               placeholder="Search for countries..."
+              autocomplete="off"
             />
+            <div class="search__suggestion">
+              <ul class="search__suggestion-list" role="list"></ul>
+            </div>
           </div>
           <div class="search__filter | grid gap-100">
             <button
